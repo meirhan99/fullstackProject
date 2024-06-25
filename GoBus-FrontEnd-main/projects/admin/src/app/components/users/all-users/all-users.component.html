@@ -1,0 +1,48 @@
+<div class="main container py-5">
+  <div class="top">
+    <h3>All Users</h3>
+  </div>
+  <div class="tableContainer">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>F.Name</th>
+          <th>L.Name</th>
+          <th>UserName</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users; index as i">
+          <td>{{ i + 1 }}</td>
+          <td>{{ user.firstName }}</td>
+          <td>{{ user.lastName }}</td>
+          <td>{{ user.userName }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.phoneNumber }}</td>
+          <td>
+            <button class="details" (click)="UserDetails(user)">Details</button>
+            <button class="delete" (click)="DeleteUser(user.id)">Delete</button>
+            <button
+              [hidden]="user.blocked"
+              class="block"
+              (click)="BlockUser(user)"
+            >
+              Block
+            </button>
+            <button
+              [hidden]="!user.blocked"
+              class="unBlock"
+              (click)="BlockUser(user)"
+            >
+              UnBlock
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

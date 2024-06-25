@@ -1,0 +1,36 @@
+<div class="main container py-5">
+  <div class="top">
+    <h3>All Destinations</h3>
+    <button class="add" (click)="AddDestination()">Add Destination</button>
+  </div>
+  <div class="tableContainer">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Image</th>
+          <th>Name</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let destination of destinations; index as i">
+          <td>{{ i + 1 }}</td>
+          <td><img [src]="destination.imageURL" alt="" /></td>
+          <td>{{ destination.name }}</td>
+          <td>
+            <button class="details" (click)="DestinationDetails(destination)">
+              Details
+            </button>
+            <button class="update" (click)="UpdateDestination(destination)">
+              Update
+            </button>
+            <button class="delete" (click)="DeleteDestination(destination.id)">
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

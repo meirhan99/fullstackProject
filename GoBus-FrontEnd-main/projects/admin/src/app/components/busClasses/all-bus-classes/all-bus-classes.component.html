@@ -1,0 +1,47 @@
+<div class="main container py-5">
+  <div class="top">
+    <h3>All BusClasses</h3>
+    <button class="add" (click)="AddBusClass()">Add BusClass</button>
+  </div>
+  <div class="tableContainer">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Image</th>
+          <th>Name</th>
+          <th>Av.Price</th>
+          <th>Buses No.</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let busClass of busClasses; index as i">
+          <td>{{ i + 1 }}</td>
+          <td>
+            <img
+              [src]="
+                busClass.classImageURLs[busClass.classImageURLs.length - 1]
+              "
+              alt=""
+            />
+          </td>
+          <td>{{ busClass.name }}</td>
+          <td>{{ busClass.averagePrice }}</td>
+          <td>{{ busClass.busesNumbers.join(", ") }}</td>
+          <td>
+            <button class="details" (click)="BusClassDetails(busClass)">
+              Details
+            </button>
+            <button class="update" (click)="UpdateBusClass(busClass)">
+              Update
+            </button>
+            <button class="delete" (click)="DeleteBusClass(busClass.id)">
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

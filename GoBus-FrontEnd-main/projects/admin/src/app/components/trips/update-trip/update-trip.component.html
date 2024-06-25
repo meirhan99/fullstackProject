@@ -1,0 +1,130 @@
+<div class="main p-4">
+  <header class="d-flex justify-content-between align-items-center">
+    <h1 class="m-0">Update Trip</h1>
+    <span mat-flat-button matDialogClose class="text-danger">
+      <mat-icon>close</mat-icon>
+    </span>
+  </header>
+
+  <form [formGroup]="tripForm">
+    <div class="row mt-3">
+      <div class="col-md-12">
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>From</mat-label>
+          <mat-select
+            formControlName="startBranchId"
+            #selectStartBranch
+            name="startBranchId"
+            id="startBranchId"
+            (change)="changeStartBranch(selectStartBranch)"
+          >
+            <ng-container *ngFor="let branch of startBranches">
+              <mat-option
+                [value]="branch.id"
+                [hidden]="endBranchesIds.includes(branch.id) && branchChanged"
+              >
+                {{ branch.name }}
+              </mat-option>
+            </ng-container>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="row mt-3">
+      <div class="col-md-12">
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>To</mat-label>
+          <mat-select
+            formControlName="endBranchId"
+            #selectEndBranch
+            name="endBranchId"
+            id="endBranchId"
+            (change)="changeStartBranch(selectEndBranch)"
+          >
+            <ng-container *ngFor="let branch of endBranches">
+              <mat-option
+                [value]="branch.id"
+                [hidden]="startBranchesIds.includes(branch.id) && branchChanged"
+              >
+                {{ branch.name }}
+              </mat-option>
+            </ng-container>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="row mt-3">
+      <div class="col-md-12">
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>Departure Date</mat-label>
+          <input
+            matInput
+            formControlName="departureDate"
+            placeholder="departureDate"
+            [min]="departureDate"
+            type="datetime-local"
+            (change)="DateChanged()"
+          />
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="row mt-3">
+      <div class="col-md-12">
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>Arrival Date</mat-label>
+
+          <input
+            matInput
+            formControlName="arrivalDate"
+            placeholder="arrivalDate"
+            [min]="departureDate"
+            type="datetime-local"
+            (change)="DateChanged()"
+          />
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="row mt-3">
+      <div class="col-md-12">
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>Price</mat-label>
+          <input matInput formControlName="price" placeholder="price" />
+        </mat-form-field>
+        <div [hidden]="price?.valid || price?.untouched">
+          <small *ngIf="price?.errors?.['required']">
+            * Price is required.
+          </small>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-3">
+      <div class="col-md-12">
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>Bus Number</mat-label>
+          <mat-select formControlName="busId">
+            <mat-option *ngFor="let bus of buses" [value]="bus?.id">
+              {{ bus?.number }} | {{ bus.currentBranch }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+  </form>
+
+  <footer class="tw-p-6">
+    <div class="d-flex justify-content-center align-items-center">
+      <div mat-flat-button class="btn btn-success py-1 px-5 mx-2">
+        <button [disabled]="tripForm.invalid" (click)="Update()">Create</button>
+      </div>
+
+      <div mat-flat-button matDialogClose class="btn btn-danger py-1 px-5">
+        <button>Close</button>
+      </div>
+    </div>
+  </footer>
+</div>

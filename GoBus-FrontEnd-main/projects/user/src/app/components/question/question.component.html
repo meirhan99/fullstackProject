@@ -1,0 +1,15 @@
+<div class="main container py-5">
+  <h3>General Questions</h3>
+  <div class="questions">
+    <ng-container *ngFor="let question of questions">
+      <div class="box">
+        <h4 class="title">
+          {{ question.title }}
+        </h4>
+        <p class="answer">
+          {{ question.answer }}
+        </p>
+      </div>
+    </ng-container>
+  </div>
+</div>

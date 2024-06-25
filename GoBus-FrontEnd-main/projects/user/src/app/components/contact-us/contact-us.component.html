@@ -1,0 +1,209 @@
+<div class="py-5">
+  <div class="main container">
+    <div class="contactUs">
+      <h2>Contact us</h2>
+      <h6>It is our pleasure and honor to help you</h6>
+      <hr />
+      <p>
+        If you have a question regarding our services and information about
+        booking and buying tickets,
+        <a routerLink="/questions" routerLinkActive="active"
+          >click here for quick questions</a
+        >
+      </p>
+      <h6>Can't find an answer in the above link?</h6>
+      <p>
+        Leave a message below, and you will be contacted as soon as possible.
+      </p>
+    </div>
+    <form [formGroup]="reportForm" (ngSubmit)="submit()">
+      <div class="mb-3">
+        <label for="firstName" class="form-label">FirstName</label>
+        <input
+          type="text"
+          formControlName="firstName"
+          class="form-control"
+          id="firstName"
+          name="firstName"
+          [class.is-invalid]="firstName?.invalid && firstName?.touched"
+          [class.is-valid]="
+            (firstName?.valid && firstName?.touched) || firstName?.untouched
+          "
+        />
+        <div [hidden]="firstName?.valid || firstName?.untouched">
+          <small *ngIf="firstName?.errors?.['required']">
+            * FirstName is required.
+          </small>
+          <small *ngIf="firstName?.errors?.['pattern']">
+            * FirstName must be 3 letters at least,
+            <b>{{firstName?.errors?.['pattern'].actualValue}}</b> dosn't match.
+          </small>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="lastName" class="form-label">LastName</label>
+        <input
+          type="text"
+          formControlName="lastName"
+          class="form-control"
+          id="lastName"
+          name="lastName"
+          [class.is-invalid]="lastName?.invalid && lastName?.touched"
+          [class.is-valid]="
+            (lastName?.valid && lastName?.touched) || lastName?.untouched
+          "
+        />
+        <div [hidden]="lastName?.valid || lastName?.untouched">
+          <small *ngIf="lastName?.errors?.['required']">
+            * LastName is required.
+          </small>
+          <small *ngIf="lastName?.errors?.['pattern']">
+            * LastName must be 3 letters at least,
+            <b>{{lastName?.errors?.['pattern'].actualValue}}</b> dosn't match.
+          </small>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input
+          type="email"
+          formControlName="email"
+          class="form-control"
+          id="email"
+          name="email"
+          [class.is-invalid]="email?.invalid && email?.touched"
+          [class.is-valid]="
+            (email?.valid && email?.touched) || email?.untouched
+          "
+        />
+        <div [hidden]="email?.valid || email?.untouched">
+          <small *ngIf="email?.errors?.['required']">
+            * Email is required.
+          </small>
+          <small *ngIf="email?.errors?.['pattern']">
+            * Please provide a valid email address,
+            <b>{{email?.errors?.['pattern'].actualValue}}</b> is not valid.
+          </small>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="phoneNumber" class="form-label">Phone No.</label>
+        <input
+          type="number"
+          formControlName="phoneNumber"
+          class="form-control"
+          id="phoneNumber"
+          name="phoneNumber"
+          [class.is-invalid]="phoneNumber?.invalid && phoneNumber?.touched"
+          [class.is-valid]="
+            (phoneNumber?.valid && phoneNumber?.touched) ||
+            phoneNumber?.untouched
+          "
+        />
+        <div [hidden]="phoneNumber?.valid || phoneNumber?.untouched">
+          <small *ngIf="phoneNumber?.errors?.['required']">
+            * Phone Number is required.
+          </small>
+          <small *ngIf="phoneNumber?.errors?.['pattern']">
+            * Please provide a valid Phone Number,
+            <b>{{phoneNumber?.errors?.['pattern'].actualValue}}</b> is not
+            valid.
+          </small>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="reservationNumber" class="form-label"
+          >Reservation No.</label
+        >
+        <input
+          type="number"
+          formControlName="reservationNumber"
+          class="form-control"
+          id="reservationNumber"
+          name="reservationNumber"
+          [class.is-invalid]="
+            reservationNumber?.invalid && reservationNumber?.touched
+          "
+          [class.is-valid]="
+            reservationNumber?.valid && reservationNumber?.touched
+          "
+        />
+        <div
+          [hidden]="reservationNumber?.valid || reservationNumber?.untouched"
+        >
+          <small *ngIf="reservationNumber?.errors?.['required']">
+            * Reservation Number is required.
+          </small>
+          <small *ngIf="reservationNumber?.errors?.['pattern']">
+            * Please provide a valid Reservation Number,
+            <b>{{reservationNumber?.errors?.['pattern'].actualValue}}</b> is not
+            valid.
+          </small>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="messageTitle" class="form-label">Message Title</label>
+        <input
+          type="text"
+          formControlName="messageTitle"
+          class="form-control"
+          id="messageTitle"
+          name="messageTitle"
+          [class.is-invalid]="messageTitle?.invalid && messageTitle?.touched"
+          [class.is-valid]="messageTitle?.valid && messageTitle?.touched"
+        />
+        <div [hidden]="messageTitle?.valid || messageTitle?.untouched">
+          <small *ngIf="messageTitle?.errors?.['required']">
+            * Message Title is required.
+          </small>
+          <small *ngIf="messageTitle?.errors?.['pattern']">
+            * Please provide a valid Message Title,
+            <b>{{messageTitle?.errors?.['pattern'].actualValue}}</b> is not
+            valid.
+          </small>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="messageContent" class="form-label">Message Content</label>
+        <input
+          type="text"
+          formControlName="messageContent"
+          class="form-control"
+          id="messageContent"
+          name="messageContent"
+          [class.is-invalid]="
+            messageContent?.invalid && messageContent?.touched
+          "
+          [class.is-valid]="messageContent?.valid && messageContent?.touched"
+        />
+        <div [hidden]="messageContent?.valid || messageContent?.untouched">
+          <small *ngIf="messageContent?.errors?.['required']">
+            * Message Content is required.
+          </small>
+          <small *ngIf="messageContent?.errors?.['pattern']">
+            * Please provide a valid Message Content,
+            <b>{{messageContent?.errors?.['pattern'].actualValue}}</b> is not
+            valid.
+          </small>
+        </div>
+      </div>
+
+      <button [disabled]="reportForm.invalid" type="submit" class="btn">
+        Submit
+      </button>
+    </form>
+    <hr />
+    <div class="help">
+      <h6>Need more help?</h6>
+      <p>Contact us on 19567</p>
+      <p>For complaints contact us on customer-complaints gobus-eg.com</p>
+      <p>Or contact us on InfoGo-Bye.com</p>
+    </div>
+  </div>
+</div>

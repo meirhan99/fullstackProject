@@ -1,0 +1,22 @@
+<div class="main container py-5">
+  <h3>Travel Destination</h3>
+  <div class="destinations">
+    <ng-container *ngFor="let destination of destinations">
+      <div
+        class="box"
+        (click)="ShowDestinationDetails(destination.id)"
+      >
+        <div class="image">
+          <img [src]="destination.imageURL" alt="" />
+        </div>
+        <div class="destination">
+          {{ destination.name }}
+          <img
+            src="https://go-bus.com/images/featured-routes/arrow.png"
+            alt=""
+          />
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>

@@ -1,0 +1,85 @@
+<div class="main container py-5">
+  <div class="top">
+    <h3>All Reservations</h3>
+    <div class="filter">
+      <h4>TripId</h4>
+      <select #tripId (change)="FilterByTripIdReservations(tripId)">
+        <option value="0">All</option>
+        <option [value]="trip.id" *ngFor="let trip of trips">
+          {{ trip.id }}
+        </option>
+      </select>
+    </div>
+    <div class="filter">
+      <h4>Reservation Date</h4>
+
+      <input
+        type="date"
+        [value]="today"
+        #reservationDate
+        (change)="FilterReservationsByDate(reservationDate)"
+      />
+    </div>
+    <div class="filter">
+      <h4>UserName</h4>
+      <select #user (change)="FilterByUserName(user)">
+        <option value="0">All</option>
+        <option [value]="user.id" *ngFor="let user of users">
+          {{ user.userName }}
+        </option>
+      </select>
+    </div>
+  </div>
+  <div class="tableContainer">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>TripId</th>
+          <th>Date</th>
+          <th>From</th>
+          <th>To</th>
+          <th>D.Date</th>
+          <th>A.Date</th>
+          <th>Class</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>T.Price</th>
+          <th>Tickets</th>
+          <th>UserName</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let reservation of reservations; index as i">
+          <td>{{ i + 1 }}</td>
+          <td>{{ reservation.tripId }}</td>
+          <td>{{ reservation.date | date : "MMM dd, yyyy 'at' hh:mm a" }}</td>
+
+          <td>{{ reservation.startBranchName }}</td>
+          <td>{{ reservation.endBranchName }}</td>
+          <td>
+            {{ reservation.departureDate | date : "MMM dd, yyyy 'at' hh:mm a" }}
+          </td>
+          <td>
+            {{ reservation.arrivalDate | date : "MMM dd, yyyy 'at' hh:mm a" }}
+          </td>
+          <td>{{ reservation.busClassName }}</td>
+          <td>{{ reservation.price }}</td>
+          <td>{{ reservation.quantity }}</td>
+          <td>{{ reservation.totalPrice }}</td>
+          <td>[{{ reservation.seatNumbers.join(",") }}]</td>
+          <td>{{ reservation.userName }}</td>
+          <td>
+            <button class="details" (click)="ReservationDetails(reservation)">
+              Details
+            </button>
+            <button class="delete" (click)="DeleteReservation(reservation.id)">
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

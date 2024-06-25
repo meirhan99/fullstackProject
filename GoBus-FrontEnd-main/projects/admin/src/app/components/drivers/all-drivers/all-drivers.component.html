@@ -1,0 +1,39 @@
+<div class="main container py-5">
+  <div class="top">
+    <h3>All Drivers</h3>
+    <button class="add" (click)="AddDriver()">Add Driver</button>
+  </div>
+  <div class="tableContainer">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>F.Name</th>
+          <th>L.Name</th>
+          <th>UserName</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let driver of drivers; index as i">
+          <td>{{ i + 1 }}</td>
+          <td>{{ driver.firstName }}</td>
+          <td>{{ driver.lastName }}</td>
+          <td>{{ driver.userName }}</td>
+          <td>{{ driver.email }}</td>
+          <td>{{ driver.phoneNumber }}</td>
+          <td>
+            <button class="details" (click)="DriverDetails(driver)">
+              Details
+            </button>
+            <button class="delete" (click)="DeleteDriver(driver.id)">
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

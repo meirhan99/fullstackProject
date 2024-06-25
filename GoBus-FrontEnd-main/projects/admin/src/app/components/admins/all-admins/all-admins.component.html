@@ -1,0 +1,39 @@
+<div class="main container py-5">
+  <div class="top">
+    <h3>All Admins</h3>
+    <button class="add" (click)="AddDriver()">Add Admin</button>
+  </div>
+  <div class="tableContainer">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>F.Name</th>
+          <th>L.Name</th>
+          <th>UserName</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let admin of admins; index as i">
+          <td>{{ i + 1 }}</td>
+          <td>{{ admin.firstName }}</td>
+          <td>{{ admin.lastName }}</td>
+          <td>{{ admin.userName }}</td>
+          <td>{{ admin.email }}</td>
+          <td>{{ admin.phoneNumber }}</td>
+          <td>
+            <button class="details" (click)="AdminDetails(admin)">
+              Details
+            </button>
+            <button class="delete" (click)="DeleteAdmin(admin.id)">
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

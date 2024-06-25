@@ -1,0 +1,128 @@
+<div class="main p-4">
+  <header class="d-flex justify-content-between align-items-center">
+    <h1 class="m-0">Add Bus</h1>
+    <span mat-flat-button matDialogClose class="text-danger">
+      <mat-icon>close</mat-icon>
+    </span>
+  </header>
+
+  <form [formGroup]="busForm">
+    <div class="row mt-3">
+      <div class="col-md-12">
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>Number</mat-label>
+          <input
+            matInput
+            formControlName="number"
+            type="number"
+            placeholder="number"
+          />
+        </mat-form-field>
+        <div [hidden]="number?.valid || number?.untouched">
+          <small *ngIf="number?.errors?.['required']">
+            * Number is required.
+          </small>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col-md-12">
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>Capacity</mat-label>
+
+          <input
+            matInput
+            formControlName="capacity"
+            type="number"
+            placeholder="capacity"
+          />
+        </mat-form-field>
+        <div [hidden]="capacity?.valid || capacity?.untouched">
+          <small *ngIf="capacity?.errors?.['required']">
+            * Capacity is required.
+          </small>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-3">
+      <div class="col-md-12">
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>Model</mat-label>
+
+          <input
+            matInput
+            formControlName="model"
+            type="text"
+            placeholder="model"
+          />
+        </mat-form-field>
+        <div [hidden]="model?.valid || model?.untouched">
+          <small *ngIf="model?.errors?.['required']">
+            * Model is required.
+          </small>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col-md-12">
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>Year</mat-label>
+
+          <input
+            matInput
+            formControlName="year"
+            type="text"
+            placeholder="year"
+          />
+        </mat-form-field>
+        <div [hidden]="year?.valid || year?.untouched">
+          <small *ngIf="year?.errors?.['required']">
+            * Year is required.
+          </small>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-3">
+      <div class="col-md-12">
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>Class</mat-label>
+          <mat-select formControlName="busClassId">
+            <mat-option
+              *ngFor="let busClass of busClasses"
+              [value]="busClass?.id"
+            >
+              {{ busClass?.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="row mt-3">
+      <div class="col-md-12">
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>Driver</mat-label>
+          <mat-select formControlName="driverId">
+            <mat-option *ngFor="let driver of drivers" [value]="driver?.id">
+              {{ driver.userName }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+  </form>
+
+  <footer class="tw-p-6">
+    <div class="d-flex justify-content-center align-items-center">
+      <div mat-flat-button class="btn btn-success py-1 px-5 mx-2">
+        <button (click)="Add()">Create</button>
+      </div>
+
+      <div mat-flat-button matDialogClose class="btn btn-danger py-1 px-5">
+        <button>Close</button>
+      </div>
+    </div>
+  </footer>
+</div>

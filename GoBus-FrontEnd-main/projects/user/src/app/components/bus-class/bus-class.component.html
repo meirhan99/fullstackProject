@@ -1,0 +1,27 @@
+<div class="main container py-5">
+  <h4 class="">Go Bus Classes</h4>
+  <p>Explore Egypt with the most booked classes</p>
+  <div class="busClasses">
+    <div class="box" *ngFor="let busClass of busClasses">
+      <div class="header">
+        <h6>{{ busClass.name }}</h6>
+        <div class="icons">
+          <img src="https://go-bus.com/images/bus-services/tv.png" alt="" />
+          <img src="https://go-bus.com/images/bus-services/wifi.png" alt="" />
+          <img
+            src="https://go-bus.com/images/bus-services/conditioner.png"
+            alt=""
+          />
+          <img src="https://go-bus.com/images/bus-services/dvd.png" alt="" />
+        </div>
+      </div>
+      <div class="body">
+        <img [src]="busClass.classImageURLs[busClass.classImageURLs.length -1]" alt="" />
+      </div>
+      <div class="footer">
+        <span>Average Ticket Price</span>
+        <span>{{busClass.averagePrice}}</span>
+      </div>
+    </div>
+  </div>
+</div>

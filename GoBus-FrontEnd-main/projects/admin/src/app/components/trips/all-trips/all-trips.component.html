@@ -1,0 +1,54 @@
+<div class="main container py-5">
+  <div class="top">
+    <h3>All Trips</h3>
+    <button class="add" (click)="AddTrip()">Add Trip</button>
+    <div class="filter">
+      <h4>Departure Date</h4>
+      <input
+        type="date"
+        [value]="today"
+        #departureDate
+        (change)="FilterTrips(departureDate)"
+      />
+    </div>
+  </div>
+  <div class="tableContainer">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>ID</th>
+          <th>From</th>
+          <th>To</th>
+          <th>Departure Date</th>
+          <th>Arrival Date</th>
+          <th>Available Seats</th>
+          <th>Class</th>
+          <th>Bus</th>
+          <th>Price</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let trip of trips; index as i">
+          <td>{{ i + 1 }}</td>
+          <td>{{ trip.id }}</td>
+          <td>{{ trip.startBranchName }}</td>
+          <td>{{ trip.endBranchName }}</td>
+          <td>{{ trip.departureDate | date : "MMM dd, yyyy 'at' hh:mm a" }}</td>
+          <td>{{ trip.arrivalDate | date : "MMM dd, yyyy 'at' hh:mm a" }}</td>
+
+          <td>{{ trip.availableSeats }}</td>
+          <td>{{ trip.busClassName }}</td>
+          <td>{{ trip.busNumber }}</td>
+          <td>{{ trip.price }}</td>
+          <td>
+            <button class="details" (click)="TripDetails(trip)">Details</button>
+            <button class="update" (click)="UpdateTrip(trip)">Update</button>
+            <button class="delete" (click)="DeleteTrip(trip.id)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

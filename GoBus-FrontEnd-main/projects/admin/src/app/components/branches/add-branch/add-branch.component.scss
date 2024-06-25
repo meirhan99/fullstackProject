@@ -1,0 +1,28 @@
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+h1 {
+  font-weight: bold;
+}
+
+textarea {
+  min-width: 130px;
+  max-width: 100%;
+  min-height: 130px;
+  max-height: 100%;
+}
+button {
+  color: white;
+  background-color: transparent;
+  border: none;
+}
+small {
+  color: red;
+}

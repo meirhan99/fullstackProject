@@ -1,0 +1,111 @@
+<form [formGroup]="filterTripsForm" (ngSubmit)="submit()">
+  <div class="">
+    <label for="startBranchId"
+      ><svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        fill="currentColor"
+        class="bi bi-geo-alt-fill"
+        viewBox="0 0 16 16"
+      >
+        <path
+          d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"
+        />
+      </svg>
+      From</label
+    >
+
+    <select
+      formControlName="startBranchId"
+      #selectStartBranch
+      name="startBranchId"
+      id="startBranchId"
+      (change)="changeStartBranch(selectStartBranch)"
+    >
+      <ng-container *ngFor="let branch of startBranches">
+        <option
+          [value]="branch.id"
+          [hidden]="endBranchesIds.includes(branch.id) && branchChanged"
+        >
+          {{ branch.name }}
+        </option>
+      </ng-container>
+    </select>
+  </div>
+
+  <div class="">
+    <label for="endBranchId"
+      ><svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        fill="currentColor"
+        class="bi bi-geo-alt-fill"
+        viewBox="0 0 16 16"
+      >
+        <path
+          d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"
+        />
+      </svg>
+      To</label
+    >
+    <select
+      formControlName="endBranchId"
+      #selectEndBranch
+      name=""
+      id=""
+      (change)="changeEndBranch(selectEndBranch)"
+    >
+      <ng-container *ngFor="let branch of endBranches">
+        <option
+          [value]="branch.id"
+          [hidden]="startBranchesIds.includes(branch.id) && branchChanged"
+        >
+          {{ branch.name }}
+        </option>
+      </ng-container>
+    </select>
+  </div>
+
+  <div class="">
+    <label for="departureDate"
+      ><svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        fill="currentColor"
+        class="bi bi-calendar"
+        viewBox="0 0 16 16"
+      >
+        <path
+          d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"
+        />
+      </svg>
+      Departure Date
+    </label>
+    <input formControlName="departureDate" [min]="today" type="date" />
+  </div>
+
+  <div class="">
+    <label for="quantity"
+      ><svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        fill="currentColor"
+        class="bi bi-people-fill"
+        viewBox="0 0 16 16"
+      >
+        <path
+          d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7Zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm-5.784 6A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216ZM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"
+        />
+      </svg>
+      Passengers
+    </label>
+
+    <input formControlName="quantity" type="number" min="1" max="50" />
+  </div>
+
+  <button type="submit" class="btn">Submit</button>
+</form>

@@ -1,0 +1,59 @@
+<div class="main container py-5">
+  <div class="top">
+    <h3>All Buses</h3>
+    <button class="add" (click)="AddBus()">Add Bus</button>
+    <div class="filter">
+      <h4>Class</h4>
+      <select #busd (change)="FilterBuses(busd)">
+        <option value="0">All</option>
+        <option [value]="busClass.id" *ngFor="let busClass of busClasses">
+          {{ busClass.name }}
+        </option>
+      </select>
+    </div>
+  </div>
+  <div class="tableContainer">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Num.</th>
+          <th>Cap.</th>
+          <th>Ava.</th>
+          <th>Loc.</th>
+          <th>Class</th>
+          <th>Driver</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let bus of buses; index as i">
+          <td>{{ i + 1 }}</td>
+          <td>{{ bus.number }}</td>
+          <td>{{ bus.capacity }}</td>
+          <td *ngIf="bus.available">
+            <span class="available">{{ bus.available }}</span>
+          </td>
+          <td *ngIf="!bus.available">
+            <span class="notAvailable">{{ bus.available }}</span>
+          </td>
+          <td *ngIf="bus.currentBranch == 'Enroute'" class="enroute">
+            {{ bus.currentBranch }}
+          </td>
+          <td *ngIf="!(bus.currentBranch == 'Enroute')" class="arrived">
+            {{ bus.currentBranch }}
+          </td>
+          <td>{{ bus.classBusName }}</td>
+          <td>{{ bus.driverFirstName }} {{ bus.driverLastName }}</td>
+          <td>
+            <button class="details" (click)="BusDetails(bus)">Details</button>
+            <button class="update" (click)="UpdateBus(bus)">Update</button>
+            <button class="delete" (click)="DeleteBranch(bus.id)">
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

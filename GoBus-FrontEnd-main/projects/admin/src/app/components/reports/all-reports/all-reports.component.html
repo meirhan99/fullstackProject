@@ -1,0 +1,47 @@
+<div class="main py-5 container">
+  <div class="top">
+    <h3>All Reports</h3>
+    <div class="filter">
+      <h4>UserName</h4>
+      <select #userId (change)="FilterReports(userId)">
+        <option value="0">All</option>
+        <option [value]="user.id" *ngFor="let user of users">
+          {{ user.userName }}
+        </option>
+      </select>
+    </div>
+  </div>
+  <div class="tableContainer">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Phone</th>
+          <th>Title</th>
+          <th>Content</th>
+          <th>Book No.</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let report of reports; index as i">
+          <td>{{ i + 1 }}</td>
+          <td>{{ report.userName }}</td>
+          <td class="phone">{{ report.userPhone }}</td>
+          <td>{{ report.messageTitle }}</td>
+          <td>{{ report.messageContent }}</td>
+          <td>{{ report.reservationNumber }}</td>
+          <td>
+            <button class="details" (click)="ReportDetails(report)">
+              Details
+            </button>
+            <button class="delete" (click)="DeleteReport(report.id)">
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

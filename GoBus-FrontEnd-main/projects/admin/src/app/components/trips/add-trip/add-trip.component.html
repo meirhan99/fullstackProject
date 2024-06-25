@@ -1,0 +1,131 @@
+<div class="main p-4">
+  <header class="d-flex justify-content-between align-items-center">
+    <h1 class="m-0">Add Trip</h1>
+    <span mat-flat-button matDialogClose class="text-danger">
+      <mat-icon>close</mat-icon>
+    </span>
+  </header>
+
+  <form [formGroup]="tripForm">
+    <div class="row mt-3">
+      <div class="col-md-12">
+        <label for="startBranchId" class="form-label">From</label>
+        <select
+          class="form-control"
+          formControlName="startBranchId"
+          #selectStartBranch
+          name="startBranchId"
+          id="startBranchId"
+          (change)="changeStartBranch(selectStartBranch)"
+        >
+          <ng-container *ngFor="let branch of startBranches">
+            <option
+              [value]="branch.id"
+              [hidden]="endBranchesIds.includes(branch.id) && branchChanged"
+            >
+              {{ branch.name }}
+            </option>
+          </ng-container>
+        </select>
+      </div>
+    </div>
+
+    <div class="row mt-3">
+      <div class="col-md-12">
+        <label for="endBranchId" class="form-label">To</label>
+        <select
+          class="form-control"
+          formControlName="endBranchId"
+          #selectEndBranch
+          name="endBranchId"
+          id="endBranchId"
+          (change)="changeEndBranch(selectEndBranch)"
+        >
+          <ng-container *ngFor="let branch of endBranches">
+            <option
+              [value]="branch.id"
+              [hidden]="startBranchesIds.includes(branch.id) && branchChanged"
+            >
+              {{ branch.name }}
+            </option>
+          </ng-container>
+        </select>
+      </div>
+    </div>
+
+    <div class="row mt-3">
+      <div class="col-md-12">
+        <label for="departureDate" class="form-label">Departure Date</label>
+        <input
+          id="arrivalDate"
+          class="form-control"
+          formControlName="departureDate"
+          placeholder="departureDate"
+          [min]="today"
+          [value]="today"
+          type="datetime-local"
+          (change)="DateChanged()"
+        />
+      </div>
+    </div>
+
+    <div class="row mt-3">
+      <div class="col-md-12">
+        <label for="arrivalDate" class="form-label">Arrival Date</label>
+
+        <input
+          id="arrivalDate"
+          class="form-control"
+          formControlName="arrivalDate"
+          placeholder="arrivalDate"
+          [min]="departureDate?.value"
+          [value]="departureDate?.value"
+          type="datetime-local"
+          (change)="DateChanged()"
+        />
+      </div>
+    </div>
+
+    <div class="row mt-3">
+      <div class="col-md-12">
+        <label for="price" class="form-label">Price</label>
+
+        <input
+          id="price"
+          class="form-control"
+          formControlName="price"
+          placeholder="price"
+        />
+        <div [hidden]="price?.valid || price?.untouched">
+          <small *ngIf="price?.errors?.['required']">
+            * Price is required.
+          </small>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-3">
+      <div class="col-md-12">
+        <label for="busId" class="form-label">Bus Number</label>
+
+        <select formControlName="busId" id="busId" class="form-control">
+          <option *ngFor="let bus of buses" [value]="bus?.id">
+            {{ bus?.number }} | {{ bus.currentBranch }}
+          </option>
+        </select>
+      </div>
+    </div>
+  </form>
+
+  <footer class="tw-p-6 mt-4">
+    <div class="d-flex justify-content-center align-items-center">
+      <div mat-flat-button class="btn btn-success py-1 px-5 mx-2">
+        <button [disabled]="tripForm.invalid" (click)="Add()">Create</button>
+      </div>
+
+      <div mat-flat-button matDialogClose class="btn btn-danger py-1 px-5">
+        <button>Close</button>
+      </div>
+    </div>
+  </footer>
+</div>

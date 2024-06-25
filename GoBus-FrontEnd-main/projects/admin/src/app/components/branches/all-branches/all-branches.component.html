@@ -1,0 +1,52 @@
+<div class="main container py-5">
+  <div class="top">
+    <h3>All Branches</h3>
+    <button class="add" (click)="AddBranch()">Add Branch</button>
+    <div class="filter">
+      <h4>City</h4>
+      <select #destinationId (change)="FilterBranches(destinationId)">
+        <option value="0">All</option>
+        <option
+          [value]="destination.id"
+          *ngFor="let destination of destinations"
+        >
+          {{ destination.name }}
+        </option>
+      </select>
+    </div>
+  </div>
+  <div class="tableContainer">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Address</th>
+          <th>Phone</th>
+          <th>City</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let branch of branches; index as i">
+          <td>{{ i + 1 }}</td>
+          <td class="name">{{ branch.name }}</td>
+          <td>{{ branch.address }}</td>
+          <td class="phone">{{ branch.phone }}</td>
+          <td>{{ branch.destinationName }}</td>
+          <td>
+            <button class="details" (click)="BranchDetails(branch)">
+              Details
+            </button>
+            <button class="update" (click)="UpdateBranch(branch)">
+              Update
+            </button>
+            <button class="delete" (click)="DeleteBranch(branch.id)">
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

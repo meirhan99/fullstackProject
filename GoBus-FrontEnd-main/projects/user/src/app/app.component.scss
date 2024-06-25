@@ -1,0 +1,23 @@
+.main {
+  // position: relative;
+  min-height: 100vh;
+  .header {
+    box-shadow: 0 1px 4px rgba(173, 173, 173, 0.35);
+    position: sticky;
+    top: 0;
+    background-color: white;
+    z-index: 1000;
+    width: 100%;
+  }
+  .body {
+    background-color: #fafafa;
+    min-height: calc(100vh - 300px);
+  }
+  .footer {
+    width: 100%;
+    position: relative;
+    left: 0;
+    bottom: 0;
+    background-color: var(--color-main);
+  }
+}

@@ -1,0 +1,122 @@
+.payment{
+  overflow: hidden;
+}
+.title{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  span{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+form {
+  width: 100%;
+}
+body {
+  color: #000;
+  overflow-x: hidden;
+  height: 100%;
+  background-repeat: no-repeat;
+}
+.card {
+  padding: 30px 25px;
+  overflow: hidden;
+}
+.border-line {
+  border-right: 1px solid #bdbdbd;
+}
+.text-sm {
+  font-size: 13px;
+}
+.text-md {
+  font-size: 18px;
+}
+.image {
+  width: 60px;
+  height: 30px;
+}
+::placeholder {
+  color: grey;
+  opacity: 1;
+}
+:-ms-input-placeholder {
+  color: grey;
+}
+::-ms-input-placeholder {
+  color: grey;
+}
+
+.cardName{
+  width: 200px;
+}
+.cardNumber{
+  width: 160px;
+}
+.cardExpiry{
+  width: 80px;
+}
+.cardCvc{
+  width: 50px;
+}
+input,
+.form-control {
+  padding: 2px 0px;
+  border: none;
+  border-bottom: 1px solid lightgrey;
+  margin-bottom: 5px;
+  margin-top: 2px;
+  box-sizing: border-box;
+  color: #000;
+  font-size: 16px;
+  letter-spacing: 1px;
+  font-weight: 500;
+}
+input:focus,
+.form-control {
+  -moz-box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  border-bottom: 1px solid var(--color-main);
+  outline-width: 0;
+}
+button:focus,
+.form-control {
+  -moz-box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  outline-width: 0;
+}
+.btn-red {
+  background-color: var(--color-main);
+  color: #fff;
+  padding: 8px 25px;
+  border-radius: 50px;
+  font-size: 18px;
+  letter-spacing: 2px;
+  border: 2px solid #fff;
+}
+.btn-red:hover {
+  background-color: #fff;
+  color: var(--color-main);
+  border: 2px solid var(--color-main);
+}
+
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
+  background-color: var(--color-main);
+}
+@media(max-width: 575px) {
+  input:focus,
+  .form-control {
+    width: 100%;
+  }
+  .border-line {
+    border-right: none;
+  }
+  .bottom{
+    text-align: center;
+    margin: auto;
+  }
+}

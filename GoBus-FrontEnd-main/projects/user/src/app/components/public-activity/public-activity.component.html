@@ -1,0 +1,17 @@
+<div class="main container py-5">
+  <h3>What we do in {{ destinationName }}</h3>
+  <hr class="my-5" />
+  <div class="publicActivities">
+    <ng-container *ngFor="let publicActivity of publicActivities">
+      <div class="box flex-column flex-md-row text-center text-md-start">
+        <div class="image">
+          <img [src]="publicActivity.imageURL" alt="" />
+        </div>
+        <div class="content">
+          <h4>{{ publicActivity.title }}</h4>
+          <p>{{ publicActivity.description }}</p>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>

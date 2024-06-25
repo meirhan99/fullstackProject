@@ -1,0 +1,44 @@
+<header class="flex-column flex-lg-row container">
+  <div class="left flex-column flex-md-row">
+    <div class="logo">
+      <img src="https://go-bus.com/images/go-bus-dark.png" alt="" />
+    </div>
+    <ul class="links">
+      <li><a routerLink="/home" routerLinkActive="active">Home</a></li>
+      <li>
+        <a routerLink="/destinations" routerLinkActive="active"
+          >Travel Destination</a
+        >
+      </li>
+      <li>
+        <a routerLink="/branches" routerLinkActive="active">Go Bus Branches</a>
+      </li>
+      <li><a routerLink="/questions" routerLinkActive="active">FAQ</a></li>
+      <li>
+        <a routerLink="/reports" routerLinkActive="active">Contact us</a>
+      </li>
+    </ul>
+  </div>
+  <div class="right">
+    <ul [hidden]="isUserLogged">
+      <li><a routerLink="/login" routerLinkActive="active">Login</a></li>
+      <li><a routerLink="/register" routerLinkActive="active">Register</a></li>
+    </ul>
+    <ul [hidden]="!isUserLogged">
+      <div>
+        <mat-menu #menu="matMenu">
+          <!-- <button mat-menu-item>
+            <span>Edit Profile</span> 
+          </button> -->
+          <button mat-menu-item>
+            <a routerLink="/history">Reservation History</a>
+          </button>
+        </mat-menu>
+      </div>
+      <li>
+        <a [matMenuTriggerFor]="menu">Welcome {{ user.userName }}</a>
+      </li>
+      <li><a routerLink="/logout" (click)="LogOut()">LogOut</a></li>
+    </ul>
+  </div>
+</header>

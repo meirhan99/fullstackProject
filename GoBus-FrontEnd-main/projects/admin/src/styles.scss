@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-wrap: balance;
+}
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+:root {
+  --color-main: #073e7e;
+  --color-secondary: #6d90ac;
+  --color-orange: #fc9900;
+  --color-red: rgb(255, 0, 0);
+  --color-green: rgb(0, 128, 0);
+  --transition-main: 0.3s;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: "Lato", sans-serif;
+  line-height: 1.7;
+  margin: 0;
+  padding: 0;
+}
+
+/* ================== GENERAL STYLES ==================*/
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

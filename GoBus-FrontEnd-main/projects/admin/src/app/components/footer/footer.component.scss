@@ -1,0 +1,32 @@
+.main {
+  padding: 20px 0;
+  .logo {
+    img {
+      width: 150px;
+    }
+  }
+  .links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .social {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      li {
+        a {
+          img{
+            width: 30px;
+          }
+        }
+      }
+    }
+  }
+  hr{
+    color: white;
+  }
+  p{
+    color: white;
+    font-size: 12px;
+  }
+}

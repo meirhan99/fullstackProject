@@ -1,0 +1,47 @@
+.main {
+  padding: 20px 0;
+  .logo {
+    img {
+      width: 150px;
+    }
+  }
+  .links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .pages {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      li {
+        a {
+          font-size: 12px;
+          color: white;
+          transition: var(--transition-main);
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+    .social {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      li {
+        a {
+          img{
+            width: 30px;
+          }
+        }
+      }
+    }
+  }
+  hr{
+    color: white;
+  }
+  p{
+    color: white;
+    font-size: 12px;
+  }
+}

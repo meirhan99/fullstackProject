@@ -1,0 +1,42 @@
+<header class="flex-column flex-xxl-row container">
+  <div class="left flex-column flex-xxl-row">
+    <div class="logo">
+      <img src="https://go-bus.com/images/go-bus-dark.png" alt="" />
+    </div>
+    <ul class="links" [hidden]="!isAdminLogged">
+      <li><a routerLink="/users" routerLinkActive="active">Users</a></li>
+      <li><a routerLink="/buses" routerLinkActive="active">Buses</a></li>
+      <li>
+        <a routerLink="/busClasses" routerLinkActive="active">BusClasses</a>
+      </li>
+      <li><a routerLink="/trips" routerLinkActive="active">Trips</a></li>
+      <li>
+        <a routerLink="/reservations" routerLinkActive="active">Reservations</a>
+      </li>
+      <li>
+        <a routerLink="/destinations" routerLinkActive="active">Destinations</a>
+      </li>
+      <li>
+        <a routerLink="/activities" routerLinkActive="active">Activities</a>
+      </li>
+      <li><a routerLink="/branches" routerLinkActive="active">Branches</a></li>
+      <li>
+        <a routerLink="/questions" routerLinkActive="active">Questions</a>
+      </li>
+      <li><a routerLink="/reports" routerLinkActive="active">Reports</a></li>
+      <li><a routerLink="/drivers" routerLinkActive="active">Drivers</a></li>
+      <li><a routerLink="/admins" routerLinkActive="active">Admins</a></li>
+    </ul>
+  </div>
+  <div class="right">
+    <ul [hidden]="isAdminLogged">
+      <li><a routerLink="/login" routerLinkActive="active">Login</a></li>
+    </ul>
+    <ul [hidden]="!isAdminLogged">
+      <li>
+        <a routerLink="/">Welcome {{ admin.userName }}</a>
+      </li>
+      <li><a routerLink="/logout" (click)="LogOut()">LogOut</a></li>
+    </ul>
+  </div>
+</header>

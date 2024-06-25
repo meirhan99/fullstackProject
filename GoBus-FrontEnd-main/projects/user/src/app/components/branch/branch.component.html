@@ -1,0 +1,19 @@
+<div class="main container py-5">
+  <h3 class="">GoBye Stations</h3>
+  <div class="destinations">
+    <div *ngFor="let destination of destinationBranches">
+      <hr />
+      <h3>{{ destination.name }}</h3>
+      <div class="branches">
+        <div *ngFor="let branch of destination.branches">
+          <div class="box d-md-flex">
+            <h4>{{ branch.name }}</h4>
+            <h6>{{ branch.name }}</h6>
+            <p>{{ branch.address }}</p>
+            <span>{{ branch.phone }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

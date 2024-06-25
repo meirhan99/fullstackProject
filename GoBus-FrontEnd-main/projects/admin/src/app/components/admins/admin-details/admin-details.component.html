@@ -1,0 +1,87 @@
+<div class="main p-4">
+  <header class="d-flex justify-content-between align-items-center">
+    <h1 class="m-0">Admin Details</h1>
+    <span mat-flat-button matDialogClose class="text-danger">
+      <mat-icon>close</mat-icon>
+    </span>
+  </header>
+  <form [formGroup]="adminForm">
+    <div class="row mt-3">
+      <div class="col-md-12">
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>First Name</mat-label>
+          <input
+            matInput
+            readonly="true"
+            formControlName="firstName"
+            placeholder="firstName"
+          />
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="row mt-3">
+      <div class="col-md-12">
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>Last Name</mat-label>
+          <input
+            matInput
+            readonly="true"
+            formControlName="lastName"
+            placeholder="lastName"
+          />
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="row mt-3">
+      <div class="col-md-12">
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>UserName</mat-label>
+          <input
+            matInput
+            readonly="true"
+            formControlName="userName"
+            placeholder="userName"
+          />
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="row mt-3">
+      <div class="col-md-12">
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>Email</mat-label>
+          <input
+            matInput
+            readonly="true"
+            formControlName="email"
+            placeholder="email"
+          />
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="row mt-3">
+      <div class="col-md-12">
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>Phone Number</mat-label>
+          <input
+            matInput
+            readonly="true"
+            formControlName="phoneNumber"
+            placeholder="phoneNumber"
+          />
+        </mat-form-field>
+      </div>
+    </div>
+  </form>
+
+  <footer class="tw-p-6">
+    <div class="d-flex justify-content-center align-items-center">
+      <div mat-flat-button matDialogClose class="btn btn-danger py-1 px-5">
+        <button>Close</button>
+      </div>
+    </div>
+  </footer>
+</div>

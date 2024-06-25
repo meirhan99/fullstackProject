@@ -1,0 +1,35 @@
+.main {
+  h3 {
+    color: var(--color-main);
+    font-weight: bold;
+  }
+  .publicActivities {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+    gap: 50px;
+    @media (max-width: 576px) {
+      & {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      }
+    }
+    .box {
+      gap: 20px;
+      display: flex;
+      justify-content: space-between;
+      .image {
+        img {
+          width: 300px;
+          box-shadow: 0 1px 6px 0 rgba(184, 184, 184, 0.3);
+          border-radius: 10px;
+          transition: var(--transition-main);
+          &:hover {
+            transform: translateY(-10px);
+          }
+        }
+      }
+      h4 {
+        color: var(--color-main);
+      }
+    }
+  }
+}

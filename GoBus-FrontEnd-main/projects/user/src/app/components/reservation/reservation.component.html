@@ -1,0 +1,105 @@
+<div class="main container py-5">
+  <div class="left">
+    <div class="top">
+      <div class="user">
+        <div class="image">
+          <img src="https://go-bus.com/images/img_avatar.png" alt="" />
+        </div>
+        <div class="info">
+          <h5>{{ user.firstName }} {{ user.lastName }}</h5>
+          <h6>{{ user.email }}</h6>
+          <h6>{{ user.phoneNumber }}</h6>
+        </div>
+      </div>
+    </div>
+    <hr />
+    <div class="bottom">
+      <div class="trip">
+        <h5 class="date">{{ trip.departureDate | date : "EEEE d MMMM" }}</h5>
+        <h5 class="time">{{ trip.departureDate | date : "h:mm a" }}</h5>
+        <h5 class="className">{{ trip.busClassName }}</h5>
+        <h5 class="startBranch">Depart from: {{ trip.startBranchName }}</h5>
+        <h5 class="endBranch">Arrive to: {{ trip.endBranchName }}</h5>
+        <div>
+          <div class="selected">
+            <img
+              src="data:image/png;base64,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"
+              alt=""
+            />
+            <h5>Your Chair</h5>
+          </div>
+          <div class="reserved">
+            <img
+              src="data:image/png;base64,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"
+              alt=""
+            />
+            <h5>Not Available</h5>
+          </div>
+          <div>
+            <img
+              src="data:image/png;base64,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"
+              alt=""
+            />
+            <h5>Available</h5>
+          </div>
+        </div>
+      </div>
+      <div class="parent">
+        <div class="div0">
+          <img
+            src="data:image/png;base64,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"
+            alt=""
+          />
+        </div>
+        <div
+          [class]="'div' + chair"
+          [class.reserved]="reservedSeats.includes(chair)"
+          [class.selected]="selectedSeats.includes(chair)"
+          *ngFor="let chair of chairs"
+        >
+          <button
+            (click)="SelectedSeat(chair)"
+            [disabled]="
+              (done && !selectedSeats.includes(chair)) ||
+              reservedSeats.includes(chair)
+            "
+          >
+            <img
+              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAsCAYAAAFtdrqqAAAABGdBTUEAALGPC/xhBQAABbpJREFUWAntWF1oXEUUnjP37rZN7UZpqq2hFWmgP3aTBvJTTJNWEXwQ+iYi+lAfrBR8UQpaQUHQJ1+kIIKgQiPig09aRcSiu2lDs0m12c1i+mdqlrRlTVNb3Lbs3TvHb+7uTe7dbtq7TTZGyMLuzDlz5sw358ycM2eFuKfP2NjY8nua6JtEmoon0nsl2VmhKCsMmW1cXZf1Sd2ViA0kWTKz4ZXUTE1LIrK9A4LolDPgY3oIiidSB4n5HJPIhgzKyoKZvSWsSUcmPpB63yM8axdyh2cdrDTg7KLSQDkvlkj95vKk2wnaml7B4eHLK720229pWdvq9qtrsesLQWbEE8mYcF0UZEJVG50Wnm0FmHC9XvX48LkHp4Vng2EKuVqPdbU0Ze8q7FVSO+FpL+7qbKZKXrQsdcaFQtoKRHKfZMopKXIk7JxUImeblDNY5EJK5vIRI0fX7Y3OldQztSdZ8COulrm0JOjHns7o046O2XwylwW0zqqsXe1ijlnKkZvSjHa1bx2pRlkskXxBsPjitjnlysvp2yaUMY4n0tu9kUEP19wsNbV5TZVXdKhjUhK5MtPegSRTMC+rKFCtAysqKWNqnQ5yZDuzbzD9thBqHWRCSHVhYhFCP8yCQkQcFmg1X49jDHy0VKQr8Cfql61pKVtvfsmizU+mnxQF++i8qSbasKsjmjGPjY6usq/lj/Z0RA3kfDXXBfqSyQfUTZ6CHpLqmtUnSe6ZD8UaWHdz81VB4pPYYOo9iTDb0t2x7du5IvbOJ0nfwAbba3qJaqq8lLbERWbxsN4azu6Zno7mTd5tBunjrZGDjrqSbBLZKFNCTt/rBKq/uBCjCJ+JIApdGcjfgrKDrg44NAK63lGOY/iyK2iY4f0kuNGlA7WIK90d0UOuLBz6Kg7KtZrafEm5a25fu2QWnzlcwrmhLuG2iJC4bHzDpe/asritBsEl+s554uqb5VXQn8msWDkVCuwPFDK+ZB4fSj0jbLHf1HEcORSNvvnFz+Pr1990+/fSkkKeIFYwS+pTQdyObXyMdJ0H3DySsoUa1WlhnzybZOHtDVqUWrKUorxaTlaIKc9kWHXKyEu5wopEbtqZ7D+jqGXfdMzRNzjyPODvxENyORghBJ5idi9leywQnuGzfhWEQIc13+l75ZkKmP8R4tVbjnLv1nVOVdcLB+DQPVisSQi+zzu+UP3ioRJXEESHUckc7m7fdti79jTwGF4XZKuftG8hoHP2ByzlUE/b1kveCQvVBw554teRTVaBugSpd+EBncsmIuFV21pbH/3bAR5PjGBAvaMBww279eFcKIBB1zk2lN6gbJXCSYiQNDqdK4jdva4VkGE+txhBa2w72x4bx9PhgO4LVq+VYkfxHP9Xx8IBE+RH8kVHjMWqEvAgsxaXzPSfFRrWibNnI9bVWy8h7j2F70MIvxMo3Y+E1t7/5VwDcDXb7j91urGQt/ahfNuBc1GPuX9IaXzFpJSbEZzL6S3jcMb7kd0+RFS5gEi/mZXQobEZ5+uKKUVnV1v0fDUgqpHFn5Iv4r716jkA9jXAfoYYNyWU6gSGN0qRBTlC/uCzOCIKyj4E+ZnPILq9+kbbtv2nrUQcdHWP0xldd+z1D6ZbLWX3AvHIro7maJnwAOhDeJ7vBfjPsTnbd8bLQM/MlYZ3MzP8eewBUOkU+AznX0HSXy7DB9xl/h/aJeAL7aUliy9ZPKAFfHE8Nph8Bdlyh86aSAENSAK6trms7MJCPm0bitWNWIO1gUEXegiDzOP4e+aGmzl9wInpCSb+2RDGOLLnJDInKj5aB+E2KeTvitUWb5YNaJxAYgW2kZwpgxf1L+gMCJaXJKtJm4w6lGjYBG1hWz3rKvOl/PLq0xVaLK2uZtnmI7pcdqIK0I9pcP0n002LBWQlHChvNmo+3i/nHYsPDZ1uyKl8H87R5koTFhMP5zze3R7dvZgwVYXlX/HQV6NiFVMEAAAAAElFTkSuQmCC"
+              alt=""
+            />
+            <div class="seatNumber">{{ chair }}</div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="right">
+    <div class="top">
+      <h5 *ngIf="passengers == 1">{{ passengers }} Passenger</h5>
+      <h5 *ngIf="passengers > 1">{{ passengers }} Passengers</h5>
+    </div>
+    <div class="body">
+      <div>
+        <h5>{{ trip.departureDate | date : "EEEE d MMMM" }}</h5>
+        <h5>Ticket Price</h5>
+      </div>
+      <div>
+        <h5>{{ trip.startBranchName }} - {{ trip.endBranchName }}</h5>
+        <h5>{{ trip.price }} EGP</h5>
+      </div>
+      <div>
+        <h5>Total Going Tickets {{ passengers }}</h5>
+        <h5>{{ trip.price * passengers }} EGP</h5>
+      </div>
+    </div>
+    <div class="bottom">
+      <span>Total</span>
+      <h3>{{ trip.price * passengers }}.00 EGP</h3>
+      <span>Tax Included </span>
+    </div>
+    <div class="bookNow">
+      <button [disabled]="!done" (click)="BookNow()">Book Now</button>
+    </div>
+  </div>
+</div>

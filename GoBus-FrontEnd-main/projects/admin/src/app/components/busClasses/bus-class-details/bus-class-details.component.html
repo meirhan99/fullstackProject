@@ -1,0 +1,65 @@
+<div class="main p-4">
+  <header class="d-flex justify-content-between align-items-center">
+    <h1 class="m-0">Class Details</h1>
+    <span mat-flat-button matDialogClose class="text-danger">
+      <mat-icon>close</mat-icon>
+    </span>
+  </header>
+  <form [formGroup]="busClassForm">
+    <div class="row mt-3">
+      <div class="col-md-12">
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>Name</mat-label>
+          <input
+            matInput
+            readonly="true"
+            formControlName="name"
+            placeholder="name"
+          />
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="row mt-3">
+      <div class="col-md-12">
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>AveragePrice</mat-label>
+          <input
+            matInput
+            readonly="true"
+            formControlName="averagePrice"
+            placeholder="averagePrice"
+          />
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="row mt-3">
+      <div class="col-md-12">
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>BusesNumbers</mat-label>
+          <input
+            matInput
+            readonly="true"
+            formControlName="busesNumbers"
+            placeholder="busesNumbers"
+          />
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="row mt-3">
+      <div class="col-md-12 image">
+        <img [src]="classImageURLs?.value[0]" alt="">
+      </div>
+    </div>
+  </form>
+
+  <footer class="tw-p-6">
+    <div class="d-flex justify-content-center align-items-center">
+      <div mat-flat-button matDialogClose class="btn btn-danger py-1 px-5">
+        <button>Close</button>
+      </div>
+    </div>
+  </footer>
+</div>

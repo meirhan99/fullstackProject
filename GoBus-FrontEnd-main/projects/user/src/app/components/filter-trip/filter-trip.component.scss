@@ -1,0 +1,42 @@
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  div {
+    display: flex;
+    flex-direction: column;
+    label {
+      font-size: 13px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      margin-bottom: 5px;
+    }
+    select {
+      padding: 5px;
+      border-radius: 5px;
+      border: 1px solid #767676;
+    }
+    input {
+      padding: 5px;
+      border-radius: 5px;
+      border: 1px solid #767676;
+    }
+  }
+  button {
+    width: fit-content;
+    margin: auto;
+    padding: 5px 30px;
+    color: white;
+    font-weight: bold;
+    background-color: var(--color-main);
+    border: 2px solid var(--color-orange);
+
+    &:hover {
+      color: var(--color-main);
+      border: 2px solid var(--color-main);
+      background-color: white;
+    }
+  }
+}

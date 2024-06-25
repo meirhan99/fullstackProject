@@ -1,0 +1,35 @@
+.main {
+  h3 {
+    color: var(--color-main);
+    margin-bottom: 30px ;
+  }
+  .destinations {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    h3 {
+    }
+    .branches {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+      .box {
+        h4{
+          color: var(--color-main);
+        }
+        box-shadow: 0 1px 6px 0 rgba(184, 184, 184, 0.3);
+        background-color: white;
+        border-radius: 10px;
+
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        height: 100%;
+        transition: var(--transition-main);
+        &:hover {
+          transform: translateY(-10px);
+        }
+      }
+    }
+  }
+}

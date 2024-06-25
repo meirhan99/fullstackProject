@@ -1,0 +1,36 @@
+<div class="main container py-5">
+  <div class="top">
+    <h3>All Questions</h3>
+    <button class="add" (click)="AddQuestion()">Add Question</button>
+  </div>
+  <div class="tableContainer">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Title</th>
+          <th>Answer</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let question of questions; index as i">
+          <td>{{ i + 1 }}</td>
+          <td>{{ question.title }}</td>
+          <td>{{ question.answer }}</td>
+          <td>
+            <button class="details" (click)="QuestionDetails(question)">
+              Details
+            </button>
+            <button class="update" (click)="UpdateQuestion(question)">
+              Update
+            </button>
+            <button class="delete" (click)="DeleteQuestion(question.id)">
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

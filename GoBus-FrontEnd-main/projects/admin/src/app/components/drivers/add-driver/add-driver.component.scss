@@ -1,0 +1,35 @@
+form {
+  padding: 40px 20px;
+  small {
+    color: red;
+  }
+  button {
+    background-color: var(--color-orange);
+    color: white;
+    margin: 20px 0;
+  }
+  /* Chrome, Safari, Edge, Opera */
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Firefox */
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+}
+h1 {
+  font-weight: bold;
+}
+
+
+button {
+  color: white;
+  background-color: transparent;
+  border: none;
+}
+small {
+  color: red;
+}

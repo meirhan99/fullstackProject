@@ -1,0 +1,132 @@
+<div class="main p-4">
+  <header class="d-flex justify-content-between align-items-center">
+    <h1 class="m-0">Reservation Details</h1>
+    <span mat-flat-button matDialogClose class="text-danger">
+      <mat-icon>close</mat-icon>
+    </span>
+  </header>
+
+  <form [formGroup]="reservationForm">
+    <div class="row mt-1">
+      <div class="col-md-12 w-100">
+          <label >TripId</label>
+          <input
+            readonly="true"
+            formControlName="tripId"
+            placeholder="tripId"
+          />
+      </div>
+    </div>
+    <div class="row mt-1">
+      <div class="col-md-12">
+        <label>Date</label>
+        <input
+          readonly="true"
+          formControlName="date"
+          placeholder="date"
+        />
+      </div>
+    </div>
+    <div class="row mt-1">
+      <div class="col-md-12">
+        <label>From</label>
+        <input
+          readonly="true"
+          formControlName="startBranchName"
+          placeholder="startBranchName"
+        />
+      </div>
+    </div>
+    <div class="row mt-1">
+      <div class="col-md-12">
+        <label>To</label>
+        <input
+          readonly="true"
+          formControlName="endBranchName"
+          placeholder="endBranchName"
+        />
+      </div>
+    </div>
+
+    <div class="row mt-1">
+      <div class="col-md-12">
+        <label>Departure Date</label>
+        <input
+          readonly="true"
+          formControlName="departureDate"
+          placeholder="departureDate"
+        />
+      </div>
+    </div>
+    <div class="row mt-1">
+      <div class="col-md-12">
+        <label>Arrival Date</label>
+        <input
+          readonly="true"
+          formControlName="arrivalDate"
+          placeholder="arrivalDate"
+        />
+      </div>
+    </div>
+
+    <div class="row mt-1">
+      <div class="col-md-12">
+        <label>Class</label>
+        <input
+          readonly="true"
+          formControlName="busClassName"
+          placeholder="busClassName"
+        />
+      </div>
+    </div>
+    <div class="row mt-1">
+      <div class="col-md-12">
+        <label>Price</label>
+        <input
+          readonly="true"
+          formControlName="price"
+          placeholder="price"
+        />
+      </div>
+    </div>
+    <div class="row mt-1">
+      <div class="col-md-12">
+        <label>Total Price</label>
+        <input
+          readonly="true"
+          formControlName="totalPrice"
+          placeholder="totalPrice"
+        />
+      </div>
+    </div>
+    <div class="row mt-1">
+      <div class="col-md-12">
+        <label>Tickets</label>
+        <input
+          readonly="true"
+          formControlName="seatNumbers"
+          placeholder="seatNumbers"
+        />
+      </div>
+    </div>
+    <div class="row mt-1">
+      <div class="col-md-12">
+        <label>UserName</label>
+        <input
+          readonly="true"
+          formControlName="userName"
+          placeholder="userName"
+        />
+
+      </div>
+    </div>
+  </form>
+
+  <footer class="tw-p-6">
+    <div class="d-flex justify-content-center align-items-center">
+      <div mat-flat-button matDialogClose class="btn btn-danger py-1 px-5">
+        <button>Close</button>
+      </div>
+    </div>
+  </footer>
+</div>

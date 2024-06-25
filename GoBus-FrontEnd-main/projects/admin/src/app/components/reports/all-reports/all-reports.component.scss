@@ -1,0 +1,96 @@
+.main {
+  .top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    h3 {
+      color: var(--color-main);
+      margin: 0;
+    }
+    .filter {
+      display: flex;
+      gap: 10px;
+      h4 {
+        margin: 0;
+      }
+    }
+  }
+  .tableContainer {
+    overflow-x: auto;
+  }
+  table {
+    background-color: white;
+    width: 100%;
+    thead {
+      @media (max-width: 576px) {
+        font-size: 12px;
+      }
+      background-color: var(--color-main);
+      tr {
+        border-bottom: 1px solid #dee2e6;
+        th {
+          color: white;
+          padding: 10px;
+          text-align: center;
+          @media (max-width: 576px) {
+            padding: 0;
+          }
+        }
+      }
+    }
+    tbody {
+      tr {
+        border-bottom: 1px solid #dee2e6;
+
+        @media (max-width: 576px) {
+          font-size: 12px;
+        }
+        td {
+          padding: 10px 5px;
+          text-align: center;
+
+          &:last-child {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            button {
+              color: white;
+              border: 2px solid white;
+              font-weight: bold;
+              border-radius: 10px;
+              padding: 5px 10px;
+              outline: none;
+              transition: var(--transition-main);
+              &:hover {
+                background-color: white;
+              }
+            }
+            .details {
+              background-color: var(--color-main);
+              &:hover {
+                color: var(--color-main);
+                border: 2px solid var(--color-main);
+              }
+            }
+            .update {
+              background-color: var(--color-orange);
+              &:hover {
+                color: var(--color-orange);
+                border: 2px solid var(--color-orange);
+              }
+            }
+            .delete {
+              background-color: var(--color-red);
+              &:hover {
+                color: var(--color-red);
+                border: 2px solid var(--color-red);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

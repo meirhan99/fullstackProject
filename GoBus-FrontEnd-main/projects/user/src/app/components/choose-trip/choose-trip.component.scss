@@ -1,0 +1,247 @@
+.main {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  @media (max-width: 1199px) {
+    & {
+      flex-direction: column;
+    }
+  }
+ 
+  .trips {
+    width: 100%;
+    max-width: 100%;
+    background-color: white;
+    padding: 40px 20px;
+    box-shadow: 0 1px 6px 0 rgba(184, 184, 184, 0.3);
+    .title {
+      width: fit-content;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 30px;
+      .start,
+      .end {
+        display: flex;
+        flex-direction: column;
+        span:first-child {
+          color: #363636;
+          font-size: 14px;
+          line-height: 26px;
+          font-weight: normal;
+        }
+        span:last-child {
+          color: #252525;
+          font-size: 24px;
+          font-weight: 900;
+          line-height: 35px;
+          display: inline-block;
+        }
+      }
+      .bus {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        span:first-child svg {
+          transform: scale(1.5);
+        }
+        span:last-child {
+          width: 50px;
+          height: 3px;
+          background-color: #c1c9d2;
+          position: relative;
+          &::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 10px;
+            height: 10px;
+            background-color: #c1c9d2;
+            border-radius: 50%;
+          }
+          &::after {
+            content: "";
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 10px;
+            height: 10px;
+            background-color: white;
+            border: 2px solid #c1c9d2;
+            border-radius: 50%;
+          }
+        }
+      }
+    }
+    .trip {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid #ececee;
+      position: relative;
+      flex-wrap: wrap;
+      .departure {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        color: var(--color-main);
+        @media (max-width: 767px) {
+          width: 30%;
+        }
+        h5:first-child {
+          font-size: 14px;
+          @media (max-width: 767px) {
+            font-size: 12px;
+          }
+        }
+        h5:last-child {
+          font-size: 18px;
+          font-weight: bold;
+          @media (max-width: 767px) {
+            font-size: 16px;
+            font-weight: bold;
+          }
+        }
+      }
+      .hero {
+        width: 25%;
+        max-width: 50%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        @media (max-width: 767px) {
+          width: 40%;
+          position: absolute;
+          top: 20px;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+        .busClass {
+          background-color: var(--color-orange);
+          color: white;
+          font-weight: bold;
+          width: fit-content;
+          font-size: 12px;
+          padding: 2px 10px;
+          border-radius: 5px 0 5px 0;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          @media (max-width: 767px) {
+            margin: auto;
+          }
+        }
+        .bus {
+          display: flex;
+          align-items: center;
+          flex-direction: column;
+          justify-content: center;
+          gap: 10px;
+          @media (max-width: 767px) {
+            display: none;
+          }
+
+          span:last-child {
+            width: 50px;
+            height: 3px;
+            background-color: #c1c9d2;
+            position: relative;
+            &::before {
+              content: "";
+              position: absolute;
+              left: 0;
+              top: 50%;
+              transform: translateY(-50%);
+              width: 10px;
+              height: 10px;
+              background-color: #c1c9d2;
+              border-radius: 50%;
+            }
+            &::after {
+              content: "";
+              position: absolute;
+              right: 0;
+              top: 50%;
+              transform: translateY(-50%);
+              width: 10px;
+              height: 10px;
+              background-color: white;
+              border: 2px solid #c1c9d2;
+              border-radius: 50%;
+            }
+          }
+        }
+      }
+      .arrival {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        color: var(--color-main);
+        @media (max-width: 767px) {
+          width: 30%;
+          text-align: end;
+        }
+        h5:first-child {
+          font-size: 14px;
+          @media (max-width: 767px) {
+            font-size: 12px;
+          }
+        }
+        h5:last-child {
+          font-size: 18px;
+          font-weight: bold;
+          @media (max-width: 767px) {
+            font-size: 16px;
+            font-weight: bold;
+          }
+        }
+      }
+      .reservation {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+
+        @media (max-width: 767px) {
+          width: 100%;
+          justify-content: space-between;
+        }
+        button {
+          background-color: var(--color-main);
+          color: white;
+          border: 2px solid white;
+          font-weight: bold;
+          width: fit-content;
+          font-size: 12px;
+          padding: 4px 20px;
+          border-radius: 10px 0 10px 0;
+          transition: var(--transition-main);
+          &:hover {
+            background-color: white;
+            color: var(--color-main);
+            border: 2px solid var(--color-main);
+          }
+        }
+        .price {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          color: var(--color-main);
+          h4 {
+            font-size: 18px;
+            font-weight: 900;
+            margin: 0;
+          }
+          span {
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+}

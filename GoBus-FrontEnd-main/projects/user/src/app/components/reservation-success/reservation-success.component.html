@@ -1,0 +1,195 @@
+<div class="main py-5">
+  <div class="container mt-6 mb-7">
+    <div class="row justify-content-center">
+      <div class="col-lg-12 col-xl-7">
+        <div class="card">
+          <div class="card-body p-5">
+            <div class="left">
+              <div class="mb-4 text-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="text-success"
+                  width="75"
+                  height="75"
+                  fill="currentColor"
+                  class="bi bi-check-circle-fill"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"
+                  />
+                </svg>
+              </div>
+            </div>
+
+            <h2>Hey {{ reservationDetails.userName }},</h2>
+            <p class="fs-sm">
+              This is the receipt for a payment of
+              <strong>{{ reservationDetails.totalPrice }}</strong> (EGP) you
+              made to GoBus.
+            </p>
+
+            <div class="border-top border-gray-200 py-2">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="text-muted mb-2">Reservation No.</div>
+                  <strong>#{{ reservationDetails.id }}</strong>
+                </div>
+                <div class="col-md-6 text-md-end">
+                  <div class="text-muted mb-2">Payment Date</div>
+                  <strong>{{
+                    reservationDetails.date | date : "MMM dd, yyyy 'at' hh:mm a"
+                  }}</strong>
+                </div>
+              </div>
+            </div>
+
+            <div class="border-top border-gray-200 py-2">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="text-muted mb-2">Client</div>
+                  <strong>
+                    {{ reservationDetails.firstName }}
+                    {{ reservationDetails.lastName }}</strong
+                  >
+                  <p class="fs-sm">
+                    <a href="#!" class="text-purple">{{
+                      reservationDetails.email
+                    }}</a>
+                  </p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                  <div class="text-muted mb-2">Payment To</div>
+                  <strong> GoBus</strong>
+                  <p class="fs-sm">
+                    <a href="#!" class="text-purple">gobus@email.com </a>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <table class="table border-bottom border-gray-200">
+              <thead>
+                <tr>
+                  <th
+                    scope="col"
+                    class="fs-sm text-dark text-uppercase-bold-sm px-0"
+                  >
+                    Description
+                  </th>
+                  <th
+                    scope="col"
+                    class="fs-sm text-dark text-uppercase-bold-sm text-end px-0"
+                  >
+                    Amount
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="px-0">From</td>
+                  <td class="text-end px-0">
+                    {{ reservationDetails.startBranchName }}
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="px-0">To</td>
+                  <td class="text-end px-0">
+                    {{ reservationDetails.endBranchName }}
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="px-0">Departure Date</td>
+                  <td class="text-end px-0">
+                    {{
+                      reservationDetails.departureDate
+                        | date : "MMM dd, yyyy 'at' hh:mm a"
+                    }}
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="px-0">Arrival Date</td>
+                  <td class="text-end px-0">
+                    {{
+                      reservationDetails.arrivalDate
+                        | date : "MMM dd, yyyy 'at' hh:mm a"
+                    }}
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="px-0">Class</td>
+                  <td class="text-end px-0">
+                    {{ reservationDetails.busClassName }}
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="px-0">Bus Number</td>
+                  <td class="text-end px-0">
+                    {{ reservationDetails.busNumber }}
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="px-0" *ngIf="reservationDetails.quantity == 1">
+                    Ticket Number
+                  </td>
+
+                  <td class="px-0" *ngIf="reservationDetails.quantity > 1">
+                    Ticket Numbers
+                  </td>
+                  <td class="text-end px-0">
+                    [{{ reservationDetails.seatNumbers }}]
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="px-0">Ticket Price</td>
+                  <td class="text-end px-0">
+                    {{ reservationDetails.price }} EGP
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="px-0" *ngIf="reservationDetails.quantity == 1">
+                    Passenger
+                  </td>
+                  <td class="px-0" *ngIf="reservationDetails.quantity > 1">
+                    Passengers
+                  </td>
+                  <td class="text-end px-0">
+                    {{ reservationDetails.quantity }}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="mt-5">
+              <div class="d-flex justify-content-end">
+                <p class="text-muted me-3">Subtotal:</p>
+                <span>{{ reservationDetails.totalPrice }} EGP</span>
+              </div>
+              <div class="d-flex justify-content-end">
+                <p class="text-muted me-3">Discount:</p>
+                <span>0</span>
+              </div>
+              <div class="d-flex justify-content-end mt-3">
+                <h5 class="me-3">Total:</h5>
+                <h5 class="text-success">
+                  {{ reservationDetails.totalPrice }} EGP
+                </h5>
+              </div>
+              <div class="backToHome">
+                <button routerLink="/home">Back Home</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
